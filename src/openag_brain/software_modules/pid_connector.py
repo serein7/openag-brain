@@ -30,7 +30,7 @@ def connect_topics(
     src_topic, dest_topic, src_topic_type, dest_topic_type, multiplier=1,
     threshold=0
 ):
-    rospy.loginfo("Connecting topic {} to topic {}".format(
+    rospy.loginfo("pid_connector: Connecting topic {} to topic {}".format(
         src_topic, dest_topic
     ))
     pub = rospy.Publisher(dest_topic, dest_topic_type, queue_size=10)
@@ -44,10 +44,9 @@ def connect_topics(
     sub = rospy.Subscriber(src_topic, src_topic_type, callback)
     return sub, pub
 
-def connect_pid_topics(pid_variable, sensor, actuator):
-    print pid_variable, sensor, actuator
+def connect_pid_topics(pid_variable, environment, sensor, actuator):
     # connect sensor's measured to PID's variable state
-    src_topic = "/environment_1/measured/{}".format(sensor)
+    src_topic = "/{}/measured/{}".format(environment, sensor)
     src_topic_type = Float64
     dest_topic = "/{}".format(pid_variable)
     dest_topic_type = Float64
@@ -57,7 +56,7 @@ def connect_pid_topics(pid_variable, sensor, actuator):
         threshold=0
     )
     # connect sensor's desired to PID's desired
-    src_topic = "/environment_1/desired/{}".format(sensor)
+    src_topic = "/{}/desired/{}".format(environment, sensor)
     src_topic_type = Float64
     dest_topic = "/{}/desired".format(pid_variable)
     dest_topic_type = Float64
