@@ -79,7 +79,7 @@ def connect_pid_topics(pid_variable, environment, sensor, actuator):
 if __name__ == '__main__':
     rospy.init_node("pid_connector")
     param_names = [
-        "pid_variable", "sensor", "actuator"
+        "pid_variable", "sensor", "actuator", "environment"
     ]
     param_values = {}
     for param_name in param_names:

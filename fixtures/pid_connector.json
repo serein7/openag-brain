@@ -8,23 +8,22 @@
       "parameters": {
         "pid_variable": {
           "type": "str",
-          "description": "PID's controlled variable",
-          "default": "light_illuminance"
+          "description": "PID's controlled variable"
         },
         "sensor" : {
           "type": "str",
-          "description": "sensor name",
+          "description": "sensor name"
         },
         "actuator" : {
           "type": "str",
-          "description": "actuator name",
+          "description": "actuator name"
         },
         "environment" : {
           "type": "str",
-          "description": "environment name",
+          "description": "environment name"
         }
       }
-    },
+    }
   ],
   "software_module": [
     {
