@@ -45,6 +45,7 @@ def connect_topics(
     return sub, pub
 
 def connect_pid_topics(pid_variable, sensor, actuator):
+    print pid_variable, sensor, actuator
     # connect sensor's measured to PID's variable state
     src_topic = "/environment_1/measured/{}".format(sensor)
     src_topic_type = Float64
@@ -78,5 +79,14 @@ def connect_pid_topics(pid_variable, sensor, actuator):
 
 if __name__ == '__main__':
     rospy.init_node("pid_connector")
-    connect_pid_topics('light_illuminance', 'light_illuminance', 'light_actuator_1')
+    param_names = [
+        "pid_variable", "sensor", "actuator"
+    ]
+    param_values = {}
+    for param_name in param_names:
+        private_param_name = "~" + param_name
+        if rospy.has_param(private_param_name):
+            param_values[param_name] = rospy.get_param(private_param_name)
+
+    connect_pid_topics(**param_values)
     rospy.spin()

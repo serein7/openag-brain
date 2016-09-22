@@ -1,0 +1,41 @@
+{
+  "software_module_type": [
+    {
+      "_id": "openag_brain:pid_connector.py",
+      "package": "openag_brain",
+      "executable": "pid_connector.py",
+      "description": "Connects topics between the /sensors, /actuators and PID namespaces",
+      "parameters": {
+        "pid_variable": {
+          "type": "str",
+          "description": "PID's controlled variable",
+          "default": "light_illuminance"
+        },
+        "sensor" : {
+          "type": "str",
+          "description": "sensor name",
+        },
+        "actuator" : {
+          "type": "str",
+          "description": "actuator name",
+        },
+        "environment" : {
+          "type": "str",
+          "description": "environment name",
+        }
+      }
+    },
+  ],
+  "software_module": [
+    {
+      "_id": "light_pid_connector_1",
+      "type": "openag_brain:pid_connector.py",
+      "parameters": {
+        "pid_variable": "light_illuminance",
+        "sensor" : "light_illuminance",
+        "actuator" : "light_actuator_1",
+        "environment" : "environment_1"
+      }
+    }
+  ]
+}
