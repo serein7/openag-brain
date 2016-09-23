@@ -34,7 +34,8 @@ def error(msg, status_code=400):
 rostopic_master = rosgraph.Master("/rostopic")
 rosnode_master = rosgraph.Master("/rosnode")
 # Register api with roscore
-rospy.init_node("api")
+# this is the reason of ROSException: rospy.init_node() has already been called with different arguments: ('api', ['/home/pi/catkin_ws/src/openag_brain/src/openag_brain/software_modules/api.py', '__name:=api', '__log:=/home/pi/.ros/log/7a3f92f4-815a-11e6-baa8-b827eba03916/api-5.log'], False, None, False, False)
+#rospy.init_node("api")
 
 @app.route("/api/{v}/param".format(v=API_VER), methods=["GET"])
 def list_params():
