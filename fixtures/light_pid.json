@@ -1,0 +1,11 @@
+{
+    "software_module": [{
+        "_id": "light_pid",
+        "type": "openag_brain:pid.py",
+        "parameters": {
+            "variable": "light_illuminance",
+            "Kp": 0.01,
+            "Ki": 0.28
+        }
+    }]
+}
