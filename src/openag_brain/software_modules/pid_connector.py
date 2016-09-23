@@ -58,7 +58,7 @@ def connect_pid_topics(pid_variable, environment, sensor, actuator):
     # connect sensor's desired to PID's desired
     src_topic = "/{}/desired/{}".format(environment, sensor)
     src_topic_type = Float64
-    dest_topic = "/{}/desired".format(pid_variable)
+    dest_topic = "/{}_desired".format(pid_variable)
     dest_topic_type = Float64
     connect_topics(
         src_topic, dest_topic, src_topic_type, dest_topic_type,
