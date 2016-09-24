@@ -208,8 +208,11 @@ class RecipeHandler(object):
 
     def stop_recipe(self, data):
         self.recipe_flag.clear()
-        self.current_recipe.cancel()
-        return True, "Success"
+        if self.current_recipe:
+            self.current_recipe.cancel()
+            return True, "Success"
+        else:
+            return False, "There is no recipe running"
 
     def run(self):
         while True:
