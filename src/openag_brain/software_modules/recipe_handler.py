@@ -207,6 +207,7 @@ class RecipeHandler(object):
         return True, "Success"
 
     def stop_recipe(self, data):
+        self.recipe_flag.clear()
         self.current_recipe.cancel()
         return True, "Success"
 
