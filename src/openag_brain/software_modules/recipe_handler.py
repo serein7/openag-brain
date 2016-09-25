@@ -207,7 +207,7 @@ class RecipeHandler(object):
         return True, "Success"
 
     def stop_recipe(self, data):
-        if self.current_recipe and self.is_running:
+        if self.current_recipe and self.current_recipe.is_running:
             self.current_recipe.cancel()
             self.recipe_flag.wait()
             return True, "Success"
