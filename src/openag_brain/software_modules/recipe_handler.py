@@ -210,7 +210,7 @@ class RecipeHandler(object):
         if self.current_recipe and self.current_recipe.is_running:
             self.current_recipe.cancel()
             while self.recipe_flag.is_set():
-                sleep(1)
+                rospy.sleep(1)
             return True, "Success"
         else:
             return False, "There is no recipe running"
