@@ -51,6 +51,7 @@
   <run_depend>python-requests</run_depend>
   <run_depend>python-gevent</run_depend>
   <run_depend>python-flask</run_depend>
+  <run_depend>python-periphery</run_depend>
 
   <run_depend>python-lxml</run_depend>
 
