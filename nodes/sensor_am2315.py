@@ -19,8 +19,8 @@ if __name__ == '__main__':
         while not rospy.is_shutdown():
             am2315.poll()
             if am2315.temperature:
-                temp_pub.publish(temp)
+                temp_pub.publish(am2315.temperature)
             if am2315.humidity:
-                humid_pub.publish(humid)
+                humid_pub.publish(am2315.humidity)
             # Use rate timer instance to sleep until next turn
             r.sleep()
